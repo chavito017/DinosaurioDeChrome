@@ -34,48 +34,48 @@ function Loop() {
 }
 
 // Variables de juego y personaje
-var sueloY = 22;                   // Posición vertical del suelo
-var velY = 0;                      // Velocidad vertical del personaje
-var impulso = 900;                 // Fuerza de impulso al saltar
-var gravedad = 2500;               // Aceleración debida a la grave
+var sueloY = 22;                // Posición vertical del suelo
+var velY = 0;                   // Velocidad vertical del personaje
+var impulso = 900;              // Fuerza de impulso al saltar
+var gravedad = 2500;            // Aceleración debida a la grave
 
 // Posición horizontal y vertical inicial del personaje
-var dinoPosX = 42;                 // Posición horizontal del personaje en la pantalla
-var dinoPosY = sueloY;             // Posición vertical del personaje en relación al suelo 
+var dinoPosX = 42;              // Posición horizontal del personaje en la pantalla
+var dinoPosY = sueloY;          // Posición vertical del personaje en relación al suelo 
 
 // Posición horizontal del suelo y velocidad de desplazamiento del escenario
-var sueloX = 0;                    // Posición horizontal actual del suelo
-var velEscenario = 1280 / 3;       // Velocidad de desplazamiento horizontal del escenario
-var gameVel = 1;                   // Velocidad general del juego (afecta obstáculos y nubes)
-var score = 0;                     // Puntuación actual del jugador
+var sueloX = 0;                 // Posición horizontal actual del suelo
+var velEscenario = 1280 / 3;    // Velocidad de desplazamiento horizontal del escenario
+var gameVel = 1;                // Velocidad general del juego (afecta obstáculos y nubes)
+var score = 0;                  // Puntuación actual del jugador
 
 // Variables de estado del juego y personaje
-var parado = false;                 // Indica si el juego está en pausa (true) o en ejecución (false)
-var saltando = false;               // Indica si el personaje está en el aire saltando (true) o en el suelo (false)
+var parado = false;             // Indica si el juego está en pausa (true) o en ejecución (false)
+var saltando = false;           // Indica si el personaje está en el aire saltando (true) o en el suelo (false)
 
 // Temporizadores para obstáculos y nubes
-var tiempoHastaObstaculo = 2;       // Tiempo restante para crear el próximo obstáculo
-var tiempoObstaculoMin = 0.7;       // Tiempo mínimo para crear obstáculos
-var tiempoObstaculoMax = 1.8;       // Tiempo máximo para crear obstáculos
-var obstaculoPosY = 16;             // Posición vertical de los obstáculos en relación al suelo
-var obstaculos = [];                // Arreglo que almacenará los elementos de obstáculos generados
+var tiempoHastaObstaculo = 2;   // Tiempo restante para crear el próximo obstáculo
+var tiempoObstaculoMin = 0.7;   // Tiempo mínimo para crear obstáculos
+var tiempoObstaculoMax = 1.8;   // Tiempo máximo para crear obstáculos
+var obstaculoPosY = 16;         // Posición vertical de los obstáculos en relación al suelo
+var obstaculos = [];            // Arreglo que almacenará los elementos de obstáculos generados
 
-var tiempoHastaNube = 0.5;          // Tiempo restante para crear la próxima nube
-var tiempoNubeMin = 0.7;            // Tiempo restante para crear la próxima nube
-var tiempoNubeMax = 2.7;            // Tiempo máximo para crear nubes
+var tiempoHastaNube = 0.5;      // Tiempo restante para crear la próxima nube
+var tiempoNubeMin = 0.7;        // Tiempo mínimo  para crear la próxima nube
+var tiempoNubeMax = 2.7;        // Tiempo máximo para crear nubes
 
 // Rangos verticales para la generación de nubes
-var maxNubeY = 270;                 // Altura máxima para generar nubes
-var minNubeY = 100;                 // Altura mínima para generar nubes
-var nubes = [];                     // Arreglo que almacenará los elementos de nubes generados
-var velNube = 0.5;                  // Velocidad de desplazamiento lateral de las nubes
+var maxNubeY = 270;        // Altura máxima para generar nubes
+var minNubeY = 100;        // Altura mínima para generar nubes
+var nubes = [];            // Arreglo que almacenará los elementos de nubes generados
+var velNube = 0.5;         // Velocidad de desplazamiento lateral de las nubes
 
 // Elementos del DOM
-var contenedor;                      // Contenedor principal del juego
-var dino;                            // Elemento que representa al personaje
-var textoScore;                      // Elemento que muestra la puntuación en pantalla
-var suelo;                           // Elemento que representa el suelo del juego
-var gameOver;                        // Elemento que muestra la pantalla de fin de juego
+var contenedor;            // Contenedor principal del juego
+var dino;                  // Elemento que representa al personaje
+var textoScore;            // Elemento que muestra la puntuación en pantalla
+var suelo;                 // Elemento que representa el suelo del juego
+var gameOver;              // Elemento que muestra la pantalla de fin de juego
 
 // Función de inicio del juego
 function Start() {
@@ -88,11 +88,10 @@ function Start() {
     document.addEventListener("keydown", HandleKeyDown);    // Agregar evento de tecla presionada
 }
 
-
 // Función para actualizar el estado del juego en cada ciclo
 function Update() {
     if(parado) return;               // Si el juego está detenido, no realizar ninguna acción
-    
+
     MoverDinosaurio();               // Mover al personaje principal
     MoverSuelo();                    // Mover el suelo para crear la ilusión de movimiento
     DecidirCrearObstaculos();        // Decidir si se debe crear un nuevo obstáculo
@@ -120,14 +119,13 @@ function Saltar(){
     }
 }
 
-
 // Función para mover al personaje verticalmente y gestionar la detección de tocar el suelo
 function MoverDinosaurio() {
     dinoPosY += velY * deltaTime;     // Actualizar la posición vertical del personaje según la velocidad
     if(dinoPosY < sueloY){            // Verificar si el personaje está en el aire
         TocarSuelo();                 // Llamar a la función para manejar el aterrizaje en el suelo
     }
-    dino.style.bottom = dinoPosY + "px";                 // Actualizar la posición en el estilo CSS
+    dino.style.bottom = dinoPosY + "px";   // Actualizar la posición en el estilo CSS
 }
 
 // Función para gestionar el aterrizaje del personaje en el suelo

@@ -6,18 +6,17 @@
 
 /* Estilos del cuerpo de la página */
 body {
-    height: 100vh;          /* Altura de la página igual a la altura visible del viewport */
-    background: #584040;    /* Color de fondo del cuerpo */
+    height: 100vh;          /* Altura de la página igual a la altura visible del "viewport" se refiere a la ventana de visualización en un navegador web, es decir, el área visible en la pantalla donde se muestra el contenido de una página web. */
+    background: #312c2c;  /* Color de fondo del cuerpo */
     display: flex;          /* Usa el modelo flexible para alinear elementos */
     align-items: center;    /* Centra verticalmente los elementos */
 }
 
 /* Estilos del contenedor principal del juego */
 .contenedor {
-    width: 920px;           /* Ancho del contenedor */
-    height: 280px;          /* Altura del contenedor */
+    width: 1200px;           /* Ancho del contenedor */
+    height: 380px;          /* Altura del contenedor */
     margin: 0 auto;         /* Centra horizontalmente el contenedor */
-    
     position: relative;     /* Define el contexto de posicionamiento para los elementos descendientes */
 
     background: linear-gradient(#b7d6c7, transparent) #ffe2d1; /* Fondo con gradiente */
