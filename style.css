@@ -1,136 +1,148 @@
+/* Estilos globales para resetear márgenes y paddings */
 * {
     padding: 0;
     margin: 0;
 }
 
-body{
-    height: 100vh;
-    background: #584040;
-    display: flex;
-    align-items: center;
+/* Estilos del cuerpo de la página */
+body {
+    height: 100vh;          /* Altura de la página igual a la altura visible del viewport */
+    background: #584040;    /* Color de fondo del cuerpo */
+    display: flex;          /* Usa el modelo flexible para alinear elementos */
+    align-items: center;    /* Centra verticalmente los elementos */
 }
 
+/* Estilos del contenedor principal del juego */
 .contenedor {
-    width: 920px;
-    height: 280px;
-    margin: 0 auto;
+    width: 920px;           /* Ancho del contenedor */
+    height: 280px;          /* Altura del contenedor */
+    margin: 0 auto;         /* Centra horizontalmente el contenedor */
     
-    position: relative;
+    position: relative;     /* Define el contexto de posicionamiento para los elementos descendientes */
 
-    background: linear-gradient(#b7d6c7, transparent) #ffe2d1;/*linear-gradient(#90ebff, white);*/
-    transition: background-color 1s linear;
-    overflow: hidden;
+    background: linear-gradient(#b7d6c7, transparent) #ffe2d1; /* Fondo con gradiente */
+    transition: background-color 1s linear; /* Transición suave para cambiar el color de fondo */
+    overflow: hidden;       /* Oculta el contenido que sobrepase los bordes */
 }
 
+/* Estilos para diferentes momentos del día */
 .mediodia {
-    background-color: #ffdcf3;
+    background-color: #ffdcf3; /* Color de fondo en la tarde */
 }
 
 .tarde {
-    background-color: #ffadad;
+    background-color: #ffadad; /* Color de fondo en la tarde */
 }
 
 .noche {
-    background-color: #aca8c7;
+    background-color: #aca8c7; /* Color de fondo en la noche */
 }
 
+/* Estilos del personaje principal */
 .dino {
-    width: 84px;
-    height: 84px;
+    width: 84px;           /* Ancho del personaje */
+    height: 84px;          /* Altura del personaje */
 
-    position: absolute;
-    bottom: 22px;
-    left: 42px;
-    z-index: 2;
+    position: absolute;    /* Posicionamiento absoluto */
+    bottom: 22px;          /* Distancia desde abajo */
+    left: 42px;            /* Distancia desde la izquierda */
+    z-index: 2;            /* Capa z para apilar elementos */
 
-    background: url(/img/dino.png.png) repeat-x 0px 0px;
-    background-size: 336px 84px;
-    background-position-x: 0px;
+    background: url(/img/dino.png.png) repeat-x 0px 0px; /* Imagen de fondo repetida */
+    background-size: 336px 84px; /* Tamaño del área de la imagen de fondo */
+    background-position-x: 0px; /* Posición inicial de la imagen de fondo */
 }
 
+/* Animación del personaje corriendo */
 .dino-corriendo {
-    animation: animarDino 0.25s steps(2) infinite;
+    animation: animarDino 0.25s steps(2) infinite; /* Animación de correr */
 }
+
+/* Estilos del personaje al estrellarse */
 .dino-estrellado {
-    background-position-x: -252px;
+    background-position-x: -252px; /* Cambia la imagen de fondo cuando está estrellado */
 }
 
+/* Estilos del suelo */
 .suelo {
-    width: 200%;
-    height: 42px;
+    width: 200%;           /* Ancho del suelo */
+    height: 42px;          /* Altura del suelo */
 
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: absolute;    /* Posicionamiento absoluto */
+    bottom: 0;             /* Se coloca en la parte inferior */
+    left: 0;               /* Se coloca en la parte izquierda */
 
-    background: url(/img/suelo.png) repeat-x 0px 0px;
-    background-size: 50% 42px;
-
+    background: url(/img/suelo.png) repeat-x 0px 0px; /* Imagen de fondo repetida */
+    background-size: 50% 42px; /* Tamaño del área de la imagen de fondo */
 }
 
-.cactus{
-    width: 46px;
-    height: 96px;
+/* Estilos de los cactus */
+.cactus {
+    width: 46px;           /* Ancho de los cactus */
+    height: 96px;          /* Altura de los cactus */
 
-    position: absolute;
-    bottom: 16px;
-    left: 600px;
-    z-index: 1;
+    position: absolute;    /* Posicionamiento absoluto */
+    bottom: 16px;          /* Distancia desde abajo */
+    left: 600px;           /* Distancia desde la izquierda */
+    z-index: 1;            /* Capa z para apilar elementos */
 
-    background: url(/img/cactus1.png) no-repeat;
-}
-.cactus2{
-    width: 98px;
-    height: 66px;
-
-    background: url(/img/cactus2.png) no-repeat;
+    background: url(/img/cactus1.png) no-repeat; /* Imagen de fondo no repetida */
 }
 
-.nube{
-    width: 92px;
-    height: 26px;
-
-    position: absolute;
-    z-index: 0;
-
-    background: url(/img/nube.png) no-repeat;
-    background-size: 92px 26px;
+/* Estilos de un segundo tipo de cactus */
+.cactus2 {
+    width: 98px;           /* Ancho del segundo tipo de cactus */
+    height: 66px;          /* Altura del segundo tipo de cactus */
+    background: url(/img/cactus2.png) no-repeat; /* Imagen de fondo no repetida */
 }
 
-.score{
-    width: 100px;
-    height: 30px;
+/* Estilos de las nubes */
+.nube {
+    width: 92px;            /* Ancho de las nubes */
+    height: 26px;           /* Altura de las nubes */
 
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    z-index: 10;
+    position: absolute;     /* Posicionamiento absoluto */
+    z-index: 0;             /* Capa z para apilar elementos */
 
-    color: #d48871;
-    font-family: Verdana;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: right;
+    background: url(/img/nube.png) no-repeat; /* Imagen de fondo no repetida */
+    background-size: 92px 26px; /* Tamaño del área de la imagen de fondo */
 }
 
-.game-over{
-    display: none;
-
-    position: absolute;
-    width: 100%;
-
-    text-align: center;
-    color: #7e928b;
-    font-size: 30px;
-    font-family: Verdana;
-    font-weight: 700;
+/* Estilos del marcador de puntos */
+.score {
+    width: 100px;          /* Ancho del marcador de puntos */
+    height: 30px;          /* Altura del marcador de puntos */
+    position: absolute;    /* Posicionamiento absoluto */
+    top: 5px;              /* Distancia desde arriba */
+    right: 15px;           /* Distancia desde la derecha */
+    z-index: 10;           /* Capa z para apilar elementos */
+    color: #d48871;      /* Color del texto */
+    font-family: Verdana;  /* Fuente del texto */
+    font-size: 30px;       /* Tamaño de la fuente */
+    font-weight: bold;     /* Peso de la fuente */
+    text-align: right;     /* Alineación del texto a la derecha */
 }
 
-@keyframes animarDino{
-    from{
-        background-position-x: -84px;
+/* Estilos del mensaje de "Game Over" */
+.game-over {
+    display: none;         /* Inicialmente oculto */
+
+    position: absolute;    /* Posicionamiento absoluto */
+    width: 100%;           /* Ancho del mensaje */
+
+    text-align: center;    /* Alineación del texto al centro */
+    color: #7e928b;      /* Color del texto */
+    font-size: 30px;       /* Tamaño de la fuente */
+    font-family: Verdana;  /* Fuente del texto */
+    font-weight: 700;      /* Peso de la fuente */
+}
+
+/* Animación para la imagen del personaje corriendo */
+@keyframes animarDino {
+    from {
+        background-position-x: -84px; /* Posición inicial de la animación */
     }
-    to{
-        background-position-x: -252px;
+    to {
+        background-position-x: -252px; /* Posición final de la animación */
     }
 }
